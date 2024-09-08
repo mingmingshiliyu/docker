@@ -1,0 +1,6 @@
+mount namespace CLONE_NEWNS
+UTS namespace CLONE_NEWUTS
+IPC namespace CLONE_NEWIPC
+pid namespace CLONE_NEWPID
+networks namespace CLONE_NEWNET
+user namespace CLONE_NEWUSER
