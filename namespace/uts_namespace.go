@@ -21,11 +21,11 @@ func Uts() {
 		CLONE_NEWUSER: id看用户id
 		CLONE_NEWNET: ifconfig看网卡
 	*/
-	cmd.SysProcAttr = &syscall.SysProcAttr{
+	cmd.SysProcAttr = &syscall.SysProcAttr{z
 		Cloneflags: syscall.CLONE_NEWUTS | syscall.CLONE_NEWIPC |
 			syscall.CLONE_NEWPID | syscall.CLONE_NEWNS |
 			syscall.CLONE_NEWUSER | syscall.CLONE_NEWNET,
-	}
+	} 
 	cmd.SysProcAttr.Credential = &syscall.Credential{
 		Uid: uint32(1),
 		Gid: uint32(1),
