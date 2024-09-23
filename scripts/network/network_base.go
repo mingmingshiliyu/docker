@@ -68,12 +68,11 @@ type NetworkDriver interface {
 //IPAM:传入的ip网段分配一个可用ip地址给容器和网络的网关,比如网络网段192.168.0.0/16，通过ipam获取这个网段的容器地址分配给容器的连接端点，保证ip不会冲突
 //Network Driver:网络管理,创建网络时用于网络初始化以及网络端点配置，比如bridge驱动的动作就是创建bridge和挂载veth设备。
 
-//创建网络
+// 创建网络
 func CreateNetwork(driver, subnet, name string) error {
 	//网段字符串转换成net.IPNet对象
 	cidr, ipNet, err := net.ParseCIDR(subnet)
 	//通过ipam分配网关ip,获取网段中第一个ip作为网关ip
-
 	//调用指定网络驱动创建网络,driver字典是网络驱动的实例字典,
 
 	//保存网络信息，网络信息存入文件系统,以便查询和在网络上连接网络端点
@@ -82,6 +81,7 @@ func CreateNetwork(driver, subnet, name string) error {
 
 func (nw *Network) dump(dumpPath string) error {
 	//检查目录是否存在，不存在创建
+
 	//保存的文件名是网络名
 	//打开文件，文件权限分别是清空内容，只写入，不存在则创建
 	//序列化成字节并写入文件
